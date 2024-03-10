@@ -15,7 +15,7 @@ exports.requestHandler = async (req: any, res: any) => {
 
     let rate_limit_left;
     let last_stream;
-    let stream_seq;
+    let stream_seq = 1;
     let visit_count;
 
     if(stream !== "true" && stream !== "false") {
@@ -90,7 +90,6 @@ exports.requestHandler = async (req: any, res: any) => {
             return;
         }
         else if (stream === "true") {
-            stream_seq = 1;
             const resObject = {
                 message: 'Hello for the ' + visit_count_str_with_ordinal + ' time ' + userID + '! You are in group ' + group + '. You have ' + rate_limit_left + ' requests left within the minute.',
                 group: group,
