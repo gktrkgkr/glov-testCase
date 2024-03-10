@@ -86,8 +86,7 @@ exports.requestHandler = async (req: any, res: any) => {
                 group: group,
                 rate_limit_left: rate_limit_left,
                 stream_seq: 0
-            })
-            return;
+            });
         }
         else if (stream === "true") {
             const resObject = {
