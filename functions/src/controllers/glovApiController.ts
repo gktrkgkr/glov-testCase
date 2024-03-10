@@ -68,6 +68,10 @@ exports.requestHandler = async (req: any, res: any) => {
         rate_limit_left = 3;
     }
 
+    await userRef.update({
+        visit_count: visit_count + 1
+    });
+
     for (let i = 0; i < 5; i++) {
         const ordinals = ['st', 'nd', 'rd', 'th', 'th', 'th', 'th', 'th', 'th'];
         const visit_count_str = visit_count.toString();
@@ -99,8 +103,5 @@ exports.requestHandler = async (req: any, res: any) => {
             stream_seq++;
         }
     }
-    await userRef.update({
-        visit_count: visit_count + 1
-    });
     return res.end();
 };
