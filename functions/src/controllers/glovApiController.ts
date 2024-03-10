@@ -82,7 +82,7 @@ exports.requestHandler = async (req: any, res: any) => {
         }
         if (stream === "false") {
             res.status(200).send({
-                message: 'Hello for the 1st time ' + userID + '! You are in group ' + group + '. You have ' + rate_limit_left + ' requests left within the minute.',
+                message: 'Hello for the ' + visit_count_str_with_ordinal + ' time ' + userID + '! You are in group ' + group + '. You have ' + rate_limit_left + ' requests left within the minute.',
                 group: group,
                 rate_limit_left: rate_limit_left,
                 stream_seq: 0
